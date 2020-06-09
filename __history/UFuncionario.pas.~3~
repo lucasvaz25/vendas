@@ -1,0 +1,81 @@
+unit UFuncionario;
+
+interface
+uses
+Classes,
+System.SysUtils,
+UPessoa;
+
+type
+  TFuncionario = class(TPessoa)
+
+    private
+    FFuncao: string;
+    FSalario: real;
+    FDepartamento: string;
+    procedure SetDepartamento(const Value: string);
+    procedure SetFuncao(const Value: string);
+    procedure SetSalario(const Value: real);
+
+    Public
+      constructor Create;
+      destructor  Destroy;
+      procedure   Free;
+
+      property    Departamento : string read FDepartamento write SetDepartamento;
+      property    Funcao       : string read FFuncao write SetFuncao;
+      property    Salario      : real read FSalario write SetSalario;
+
+      procedure   CopiarDados(Value : TFuncionario);
+      procedure   LimparDados;
+  end;
+
+implementation
+
+{ TFuncionario }
+
+procedure TFuncionario.CopiarDados(Value: TFuncionario);
+begin
+  inherited CopiarDados(Value);
+  FDepartamento := Value.FDepartamento;
+  FFuncao       := Value.FFuncao;
+  FSalario      := Value.FSalario;
+end;
+
+constructor TFuncionario.Create;
+begin
+  inherited Create;
+  Self.LimparDados;
+end;
+
+destructor TFuncionario.Destroy;
+begin
+
+end;
+
+procedure TFuncionario.Free;
+begin
+
+end;
+
+procedure TFuncionario.LimparDados;
+begin
+
+end;
+
+procedure TFuncionario.SetDepartamento(const Value: string);
+begin
+  FDepartamento := Value;
+end;
+
+procedure TFuncionario.SetFuncao(const Value: string);
+begin
+  FFuncao := Value;
+end;
+
+procedure TFuncionario.SetSalario(const Value: real);
+begin
+  FSalario := Value;
+end;
+
+end.

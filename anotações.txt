@@ -1,0 +1,25 @@
+atributos produto
+
+nome
+marca
+unidade(kg, unidade, caixa )
+valor(compra e venda)
+
+
+pessoa(Cliente, funcionário)
+nome
+CPF
+RG
+gênero
+idade
+
+herança(cliente, funcionario)
+
+funcionario
+setor/departamento
+salario
+função
+
+fornecedor
+nome fantasia
+CNPJ

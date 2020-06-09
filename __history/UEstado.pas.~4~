@@ -1,0 +1,97 @@
+unit UEstado;
+
+interface
+uses
+Classes,
+System.SysUtils,
+UPais,
+UGeral;
+
+type
+ TEstado = Class (TGeral)
+
+  private
+    FDDD: string;
+    FUF: string;
+    FNome: string;
+    FPais: TPais;
+    procedure SetDDD(const Value: string);
+    procedure SetNome(const Value: string);
+    procedure SetUF(const Value: string);
+    procedure SetPais(const Value: TPais);
+
+  public
+    constructor Create;
+    destructor  Destroy;
+    procedure   Free;
+
+    property    Nome : string read FNome write SetNome;
+    property    UF   : string read FUF write SetUF;
+    property    DDD  : string read FDDD write SetDDD;
+    property    Pais : TPais read FPais write SetPais;
+
+    procedure CopiarDados(Value : TEstado);
+    procedure LimparDados;
+ End;
+
+implementation
+
+{ TEstado }
+
+procedure TEstado.CopiarDados(Value: TEstado);
+begin
+  inherited CopiarDados(Value);
+  Pais.CopiarDados(Value);
+  FNome := Value.FNome;
+  FUF   := Value.FUF;
+  FDDD  := Value.FDDD;
+end;
+
+constructor TEstado.Create;
+begin
+  inherited create;
+  Pais := TPais.Create;
+end;
+
+destructor TEstado.Destroy;
+begin
+  Pais.Free;
+  inherited Destroy;
+end;
+
+procedure TEstado.Free;
+begin
+  if assigned(Self) then
+     Self.Destroy;
+end;
+
+procedure TEstado.LimparDados;
+begin
+  inherited LimparDados;
+  Pais.LimparDados;
+  FNome := '';
+  FUF   := '';
+  FDDD  := '';
+end;
+
+procedure TEstado.SetDDD(const Value: string);
+begin
+  FDDD := Value;
+end;
+
+procedure TEstado.SetNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+procedure TEstado.SetPais(const Value: TPais);
+begin
+  FPais := Value;
+end;
+
+procedure TEstado.SetUF(const Value: string);
+begin
+  FUF := Value;
+end;
+
+end.

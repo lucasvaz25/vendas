@@ -1,0 +1,85 @@
+object FRM_PDV: TFRM_PDV
+  Left = 0
+  Top = 0
+  Caption = 'FRM_PDV'
+  ClientHeight = 363
+  ClientWidth = 709
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlLayoutPrincipal: TPanel
+    Left = 0
+    Top = 0
+    Width = 709
+    Height = 363
+    Align = alClient
+    Color = clInactiveCaption
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitLeft = -8
+    DesignSize = (
+      709
+      363)
+    object edProduto: TLabeledEdit
+      Left = 328
+      Top = 320
+      Width = 178
+      Height = 21
+      Anchors = [akRight, akBottom]
+      CharCase = ecUpperCase
+      EditLabel.Width = 64
+      EditLabel.Height = 23
+      EditLabel.Caption = 'Produto:'
+      EditLabel.Font.Charset = DEFAULT_CHARSET
+      EditLabel.Font.Color = clWindowText
+      EditLabel.Font.Height = -17
+      EditLabel.Font.Name = 'Trebuchet MS'
+      EditLabel.Font.Style = []
+      EditLabel.ParentFont = False
+      TabOrder = 0
+    end
+    object edUnidade: TLabeledEdit
+      Left = 512
+      Top = 320
+      Width = 41
+      Height = 21
+      Anchors = [akRight, akBottom]
+      EditLabel.Width = 40
+      EditLabel.Height = 23
+      EditLabel.Caption = 'Unid:'
+      EditLabel.Font.Charset = DEFAULT_CHARSET
+      EditLabel.Font.Color = clWindowText
+      EditLabel.Font.Height = -17
+      EditLabel.Font.Name = 'Trebuchet MS'
+      EditLabel.Font.Style = []
+      EditLabel.ParentFont = False
+      TabOrder = 1
+    end
+    object edSubTotal: TLabeledEdit
+      Left = 576
+      Top = 320
+      Width = 89
+      Height = 21
+      Anchors = [akRight, akBottom]
+      EditLabel.Width = 70
+      EditLabel.Height = 23
+      EditLabel.Caption = 'SubTotal:'
+      EditLabel.Font.Charset = DEFAULT_CHARSET
+      EditLabel.Font.Color = clWindowText
+      EditLabel.Font.Height = -17
+      EditLabel.Font.Name = 'Trebuchet MS'
+      EditLabel.Font.Style = []
+      EditLabel.ParentFont = False
+      TabOrder = 2
+    end
+  end
+end

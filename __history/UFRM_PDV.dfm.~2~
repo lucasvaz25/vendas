@@ -1,0 +1,48 @@
+object FRM_PDV: TFRM_PDV
+  Left = 0
+  Top = 0
+  Caption = 'FRM_PDV'
+  ClientHeight = 363
+  ClientWidth = 709
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlLayoutPrincipal: TPanel
+    Left = 0
+    Top = 0
+    Width = 709
+    Height = 363
+    Align = alClient
+    Color = clInactiveCaption
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitLeft = 384
+    ExplicitTop = 224
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object edProduto: TLabeledEdit
+      Left = 368
+      Top = 320
+      Width = 121
+      Height = 21
+      CharCase = ecUpperCase
+      EditLabel.Width = 64
+      EditLabel.Height = 23
+      EditLabel.Caption = 'Produto:'
+      EditLabel.Font.Charset = DEFAULT_CHARSET
+      EditLabel.Font.Color = clWindowText
+      EditLabel.Font.Height = -17
+      EditLabel.Font.Name = 'Trebuchet MS'
+      EditLabel.Font.Style = []
+      EditLabel.ParentFont = False
+      TabOrder = 0
+    end
+  end
+end

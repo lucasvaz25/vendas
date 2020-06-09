@@ -1,0 +1,20 @@
+unit UPessoa;
+
+interface
+uses
+Classes,
+System.SysUtils;
+UGeral;
+
+type
+  TPessoa = Class(TGeral)
+
+     private
+
+     public
+
+  End;
+
+implementation
+
+end.

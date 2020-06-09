@@ -1,0 +1,89 @@
+unit UGeral;
+
+interface
+uses
+Classes,
+system.sysutils;
+
+type TGeral = class
+  private
+    FDateInsert: TDateTime;
+    FID: integer;
+    FUserUpdate: String;
+    FUserInsert: String;
+    FDateUpdate: TDateTime;
+    procedure SetDateInsert(const Value: TDateTime);
+    procedure SetDateUpdate(const Value: TDateTime);
+    procedure SetID(const Value: integer);
+    procedure SetUserInsert(const Value: String);
+    procedure SetUserUpdate(const Value: String);
+  public
+     constructor Create;
+     destructor Destroy;
+     procedure Free;
+
+     property ID : integer read FID write SetID;
+     property DateInsert :  TDateTime read FDateInsert write SetDateInsert;
+     property UserInsert : String read FUserInsert write SetUserInsert;
+     property DateUpdate : TDateTime read FDateUpdate write SetDateUpdate;
+     property UserUpdate : String read FUserUpdate write SetUserUpdate;
+
+     procedure CopiarDados(Value : TGeral);
+     procedure LimparDados;
+end;
+
+implementation
+
+{ TGeral }
+
+procedure TGeral.CopiarDados(Value: TGeral);
+begin
+
+end;
+
+constructor TGeral.Create;
+begin
+
+end;
+
+destructor TGeral.Destroy;
+begin
+
+end;
+
+procedure TGeral.Free;
+begin
+
+end;
+
+procedure TGeral.LimparDados;
+begin
+
+end;
+
+procedure TGeral.SetDateInsert(const Value: TDateTime);
+begin
+  FDateInsert := Value;
+end;
+
+procedure TGeral.SetDateUpdate(const Value: TDateTime);
+begin
+  FDateUpdate := Value;
+end;
+
+procedure TGeral.SetID(const Value: integer);
+begin
+  FID := Value;
+end;
+
+procedure TGeral.SetUserInsert(const Value: String);
+begin
+  FUserInsert := Value;
+end;
+
+procedure TGeral.SetUserUpdate(const Value: String);
+begin
+  FUserUpdate := Value;
+end;
+
+end.

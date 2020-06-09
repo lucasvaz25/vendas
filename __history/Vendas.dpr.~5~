@@ -1,0 +1,18 @@
+program Vendas;
+
+uses
+  Vcl.Forms,
+  USistema in 'USistema.pas' {Sistema},
+  UFRM_CAD_BASE in 'UFRM_CAD_BASE.pas' {FRM_CAD_BASE},
+  UFRM_PDV in 'UFRM_PDV.pas' {FRM_PDV};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TSistema, Sistema);
+  //Application.CreateForm(TFRM_PDV, FRM_PDV);
+  //  Application.CreateForm(TFRM_CAD_BASE, FRM_CAD_BASE);
+  Application.Run;
+end.

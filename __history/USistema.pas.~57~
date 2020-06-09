@@ -1,0 +1,279 @@
+unit USistema;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage, Vcl.StdCtrls,
+  UFRM_CAD_BASE,
+  UFRM_FND_BASE,
+  UFRM_PDV;
+
+type
+  TSistema = class(TForm)
+    pnlLayoutPrincipal: TPanel;
+    pnlCabecarioMenu: TPanel;
+    btnSairGeral: TImage;
+    pnlMenuPrincipal: TPanel;
+    lblRelatorios: TLabel;
+    lblCadastros: TLabel;
+    lblVendas: TLabel;
+    pnlCadastros: TPanel;
+    lblCadClientes: TLabel;
+    lblCadFuncionarios: TLabel;
+    lblCadProdutos: TLabel;
+    pnlRelatorios: TPanel;
+    lblRelFinanceiro: TLabel;
+    procedure btnSairGeralClick(Sender: TObject);
+    procedure pnlCabecarioMenuClick(Sender: TObject);
+    procedure pnlLayoutPrincipalClick(Sender: TObject);
+    procedure pnlMenuPrincipalClick(Sender: TObject);
+    procedure btnCadClientesClick(Sender: TObject);
+    procedure pnlVendasClick(Sender: TObject);
+    procedure lblRelatoriosMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblRelatoriosMouseLeave(Sender: TObject);
+    procedure lblCadastrosMouseLeave(Sender: TObject);
+    procedure lblCadastrosMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblVendasMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblVendasMouseLeave(Sender: TObject);
+    procedure lblVendasClick(Sender: TObject);
+    procedure lblCadastrosClick(Sender: TObject);
+    procedure pnlCadastrosMouseLeave(Sender: TObject);
+    procedure lblCadClientesMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblCadClientesMouseLeave(Sender: TObject);
+    procedure lblCadFuncionariosMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblCadFuncionariosMouseLeave(Sender: TObject);
+    procedure lblCadProdutosMouseLeave(Sender: TObject);
+    procedure lblCadProdutosMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblCadClientesClick(Sender: TObject);
+    procedure lblRelFinanceiroMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblRelFinanceiroMouseLeave(Sender: TObject);
+    procedure lblRelatoriosClick(Sender: TObject);
+    procedure pnlRelatoriosMouseLeave(Sender: TObject);
+
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+    procedure teste;
+    procedure testeConsulta;
+    procedure closeall;
+
+  end;
+
+var
+  Sistema: TSistema;
+
+implementation
+
+{$R *.dfm}
+
+procedure TSistema.btnCadClientesClick(Sender: TObject);
+begin
+  testeConsulta;
+end;
+
+procedure TSistema.btnSairGeralClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TSistema.closeall;
+var
+  I: Integer;
+  j: Integer;
+begin
+
+end;
+
+procedure TSistema.lblCadastrosClick(Sender: TObject);
+begin
+  pnlCadastros.Visible := True;
+  pnlCadastros.Height := 82;
+end;
+
+procedure TSistema.lblCadastrosMouseLeave(Sender: TObject);
+begin
+  lblCadastros.Font.Size := 13;
+end;
+
+procedure TSistema.lblCadastrosMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  lblCadastros.Font.Size := 15;
+end;
+
+procedure TSistema.lblCadClientesClick(Sender: TObject);
+begin
+  pnlCadastros.Visible := False;
+  testeConsulta;
+end;
+
+procedure TSistema.lblCadClientesMouseLeave(Sender: TObject);
+begin
+  lblCadClientes.Font.Size := 13;
+end;
+
+procedure TSistema.lblCadClientesMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  lblCadClientes.Font.Size := 15;
+  pnlCadastros.Visible := True;
+end;
+
+procedure TSistema.lblCadFuncionariosMouseLeave(Sender: TObject);
+begin
+  lblCadFuncionarios.Font.Size := 13;
+  pnlCadastros.Width := 146;
+end;
+
+procedure TSistema.lblCadFuncionariosMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  lblCadFuncionarios.Font.Size := 15;
+  pnlCadastros.Visible := True;
+  pnlCadastros.Width := 164;
+end;
+
+procedure TSistema.lblCadProdutosMouseLeave(Sender: TObject);
+begin
+  lblCadProdutos.Font.Size := 13;
+end;
+
+procedure TSistema.lblCadProdutosMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  lblCadProdutos.Font.Size := 15;
+  pnlCadastros.Visible := True;
+  pnlCadastros.Height := 87;
+end;
+
+procedure TSistema.lblRelatoriosClick(Sender: TObject);
+begin
+  pnlRelatorios.Visible := True;
+end;
+
+procedure TSistema.lblRelatoriosMouseLeave(Sender: TObject);
+begin
+  lblRelatorios.Font.Size := 13;
+end;
+
+procedure TSistema.lblRelatoriosMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  lblRelatorios.Font.Size := 15
+end;
+
+procedure TSistema.lblRelFinanceiroMouseLeave(Sender: TObject);
+begin
+  lblRelFinanceiro.Font.Size := 13;
+
+end;
+
+procedure TSistema.lblRelFinanceiroMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  lblRelFinanceiro.Font.Size := 15;
+  pnlRelatorios.Visible := True;
+  pnlRelatorios.Width := 124;
+end;
+
+procedure TSistema.lblVendasClick(Sender: TObject);
+var
+  form: TFRM_PDV;
+begin
+  form := TFRM_PDV.Create(self);
+  try
+    form.ShowModal;
+  finally
+    form.free;
+  end;
+end;
+
+procedure TSistema.lblVendasMouseLeave(Sender: TObject);
+begin
+  lblVendas.Font.Size := 13;
+end;
+
+procedure TSistema.lblVendasMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  lblVendas.Font.Size := 15;
+end;
+
+procedure TSistema.pnlCabecarioMenuClick(Sender: TObject);
+begin
+  closeall;
+end;
+
+procedure TSistema.pnlCadastrosMouseLeave(Sender: TObject);
+begin
+  pnlCadastros.Visible := False;
+end;
+
+procedure TSistema.pnlVendasClick(Sender: TObject);
+var
+  form: TFRM_PDV;
+begin
+  form := TFRM_PDV.Create(self);
+  try
+    form.ShowModal;
+  finally
+    form.free;
+  end;
+
+end;
+
+procedure TSistema.teste;
+var
+  form: TFRM_CAD_BASE;
+begin
+  form := TFRM_CAD_BASE.Create(self);
+  try
+    closeall;
+    form.ShowModal;
+  finally
+    form.free;
+  end;
+
+end;
+
+procedure TSistema.testeConsulta;
+var
+  form: TUFRM_FND_BASE;
+begin
+  form := TUFRM_FND_BASE.Create(self);
+  try
+    closeall;
+    form.ShowModal;
+  finally
+    form.free;
+  end;
+end;
+
+procedure TSistema.pnlLayoutPrincipalClick(Sender: TObject);
+begin
+  closeall;
+end;
+
+procedure TSistema.pnlMenuPrincipalClick(Sender: TObject);
+begin
+  closeall;
+end;
+
+procedure TSistema.pnlRelatoriosMouseLeave(Sender: TObject);
+begin
+  pnlRelatorios.Visible := False;
+end;
+
+end.

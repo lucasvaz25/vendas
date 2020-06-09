@@ -1,0 +1,90 @@
+unit UPais;
+
+interface
+uses
+Classes,
+System.SysUtils,
+UGeral;
+
+type
+  TPais = Class(TGeral)
+
+    private
+    FMoeda: String;
+    FSigla: String;
+    FNome: String;
+    FDDI: String;
+    procedure SetDDI(const Value: String);
+    procedure SetMoeda(const Value: String);
+    procedure SetNome(const Value: String);
+    procedure SetSigla(const Value: String);
+
+    public
+      constructor Create;
+      destructor  Destroy;
+      procedure   Free;
+
+      property    Nome  : String read FNome write SetNome;
+      property    Sigla : String read FSigla write SetSigla;
+      property    DDI   : String read FDDI write SetDDI;
+      property    Moeda : String read FMoeda write SetMoeda;
+
+      procedure CopiarDados(Value : TPais);
+      procedure LimparDados;
+
+  End;
+
+implementation
+
+{ TPais }
+
+procedure TPais.CopiarDados(Value: TPais);
+begin
+  inherited CopiarDados(Value);
+  FNome  := Value.FNome;
+  FSigla := Value.FSigla;
+  FDDI   := Value.FDDI;
+  FMoeda := Value.FMoeda;
+end;
+
+constructor TPais.Create;
+begin
+
+end;
+
+destructor TPais.Destroy;
+begin
+
+end;
+
+procedure TPais.Free;
+begin
+
+end;
+
+procedure TPais.LimparDados;
+begin
+
+end;
+
+procedure TPais.SetDDI(const Value: String);
+begin
+  FDDI := Value;
+end;
+
+procedure TPais.SetMoeda(const Value: String);
+begin
+  FMoeda := Value;
+end;
+
+procedure TPais.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+procedure TPais.SetSigla(const Value: String);
+begin
+  FSigla := Value;
+end;
+
+end.
