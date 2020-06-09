@@ -1,0 +1,34 @@
+unit UProduto;
+
+interface
+
+uses
+  Classes,
+  System.SysUtils,
+  UGeral;
+
+Type
+  TProduto = class( TGeral )
+  private
+  protected
+  public
+    constructor Create;
+    destructor Destroy;
+    procedure Free;
+
+    property Descricao: string;
+    property Unidade: string;
+    property Cod_barra: string;
+    property Vlr_unitario: Currency;
+    property Vlr_Compra: Currency;
+    property Vlr_Venda: Currency;
+    property Marca: string;
+
+    procedure CopiarDados( Value: TProduto );
+    procedure LimparDados;
+
+  end;
+
+implementation
+
+end.

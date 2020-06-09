@@ -2,16 +2,17 @@ program Vendas;
 
 uses
   Vcl.Forms,
-  USistema in 'USistema.pas' {Sistema} ,
-  UFRM_CAD_BASE in 'UFRM_CAD_BASE.pas' {FRM_CAD_BASE} ,
-  UFRM_PDV in 'UFRM_PDV.pas' {FRM_PDV} ,
-  UFRM_FND_BASE in 'UFRM_FND_BASE.pas' {UFRM_FND_BASE} ,
+  USistema in 'USistema.pas' {Sistema},
+  UFRM_CAD_BASE in 'UFRM_CAD_BASE.pas' {FRM_CAD_BASE},
+  UFRM_PDV in 'UFRM_PDV.pas' {FRM_PDV},
+  UFRM_FND_BASE in 'UFRM_FND_BASE.pas' {UFRM_FND_BASE},
   UGeral in 'UGeral.pas',
   UPessoa in 'UPessoa.pas',
   UFuncionario in 'UFuncionario.pas',
   UPais in 'UPais.pas',
   UEstado in 'UEstado.pas',
-  UCidade in 'UCidade.pas';
+  UCidade in 'UCidade.pas',
+  UProduto in 'UProduto.pas';
 
 {$R *.res}
 

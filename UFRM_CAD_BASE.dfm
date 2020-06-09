@@ -24,6 +24,9 @@ object FRM_CAD_BASE: TFRM_CAD_BASE
     Enabled = False
     ParentBackground = False
     TabOrder = 0
+    DesignSize = (
+      711
+      375)
     object ImageSave: TImage
       Left = 619
       Top = 321
@@ -50,8 +53,9 @@ object FRM_CAD_BASE: TFRM_CAD_BASE
     object lblUserDateInsert: TLabel
       Left = 16
       Top = 341
-      Width = 145
-      Height = 12
+      Width = 134
+      Height = 13
+      Anchors = [akLeft, akBottom]
       Caption = 'Usu'#225'rio e data de Inser'#231#227'o:'
     end
     object lblUserDateUpdate: TLabel
@@ -59,6 +63,7 @@ object FRM_CAD_BASE: TFRM_CAD_BASE
       Top = 341
       Width = 138
       Height = 13
+      Anchors = [akRight, akBottom]
       Caption = 'Usu'#225'rio e data de Altera'#231#227'o:'
     end
     object pnlCabecalhoMenu: TPanel

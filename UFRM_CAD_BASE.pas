@@ -3,26 +3,35 @@ unit UFRM_CAD_BASE;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.Imaging.Pngimage,
+  Vcl.ExtCtrls,
   Vcl.StdCtrls;
 
 type
-  TFRM_CAD_BASE = class(TForm)
-    pnlLayoutPrincipal: TPanel;
-    pnlCabecalhoMenu: TPanel;
-    imageClose: TImage;
-    edtCodigo: TLabeledEdit;
+  TFRM_CAD_BASE = class( TForm )
+    PnlLayoutPrincipal: TPanel;
+    PnlCabecalhoMenu: TPanel;
+    ImageClose: TImage;
+    EdtCodigo: TLabeledEdit;
     ImageSave: TImage;
-    lblUserDateInsert: TLabel;
-    lblUserDateUpdate: TLabel;
-    procedure imageCloseClick(Sender: TObject);
+    LblUserDateInsert: TLabel;
+    LblUserDateUpdate: TLabel;
+    procedure ImageCloseClick( Sender: TObject );
 
   private
     { Private declarations }
   public
     { Public declarations }
+    IsInsert : boolean;
   end;
 
 var
@@ -32,9 +41,9 @@ implementation
 
 {$R *.dfm}
 
-procedure TFRM_CAD_BASE.imageCloseClick(Sender: TObject);
+procedure TFRM_CAD_BASE.ImageCloseClick( Sender: TObject );
 begin
-  self.Close;
+  Self.Close;
 end;
 
 end.

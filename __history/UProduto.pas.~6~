@@ -1,0 +1,27 @@
+unit UProduto;
+
+interface
+
+uses
+  Classes,
+  System.SysUtils,
+  UGeral;
+
+Type
+  TProduto = class( TGeral )
+  private
+  protected
+  public
+    constructor Create;
+    destructor Destroy;
+    procedure Free;
+
+    property Descricao: string;
+    property Unidade: string;
+    property Cod_barra: string;
+
+  end;
+
+implementation
+
+end.
