@@ -52,19 +52,31 @@ object FRM_CAD_BASE: TFRM_CAD_BASE
     end
     object lblUserDateInsert: TLabel
       Left = 16
-      Top = 341
-      Width = 134
+      Top = 333
+      Width = 155
       Height = 13
       Anchors = [akLeft, akBottom]
       Caption = 'Usu'#225'rio e data de Inser'#231#227'o:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblUserDateUpdate: TLabel
-      Left = 400
-      Top = 341
-      Width = 138
+      Left = 336
+      Top = 333
+      Width = 160
       Height = 13
       Anchors = [akRight, akBottom]
       Caption = 'Usu'#225'rio e data de Altera'#231#227'o:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object pnlCabecalhoMenu: TPanel
       Left = 1

@@ -11,6 +11,8 @@ object UFRM_FND_BASE: TUFRM_FND_BASE
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object PnlLayoutPrincipal: TPanel
@@ -129,7 +131,7 @@ object UFRM_FND_BASE: TUFRM_FND_BASE
         OnClick = ImageNovoClick
       end
       object ImageExcluir: TImage
-        Left = 510
+        Left = 507
         Top = 4
         Width = 49
         Height = 50
@@ -253,6 +255,51 @@ object UFRM_FND_BASE: TUFRM_FND_BASE
         ShowHint = True
         OnClick = ImageAlterarClick
       end
+      object ImageOpcoes: TImage
+        Left = 582
+        Top = 4
+        Width = 49
+        Height = 50
+        Hint = 'Excluir Registro'
+        ParentShowHint = False
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D494844520000002D0000
+          002D08060000003A1AE29A000001177A5458745261772070726F66696C652074
+          7970652065786966000078DAAD9B59762339906CFFB18A5E4260069683F19CDE
+          C15B7E5F430429A5523954D5132B452A4822001FCCCD1C28B3FEDFFF6EF33FFC
+          A49A820931175EA48B9F5043758D17E5BA7FEAF96DAF707E9F1F379FF7EC8FD7
+          CDFB0DC725CFB3BFFFCCEDF97CE37AFCF8C2EB1EB6FF78DD94E71D579E81EC7B
+          E0F3E37567BD9E9F27C975775FB7E119A8AEFB45AA257F9E6A7F061ACF07CF54
+          9E7FE13DADFB497F9B1F2E64AC342337F2CE2D6FFD757E977B06FEFED7F897F9
+          6D7D761F5782E12978FB0C86417E58DEEBF9FA34AB2FC67FBD325FADFF7EF5C5
+          F8AE3DD7FD175BA6C746BCF8F60D1BBF5CF7EFDBB8CF37F6EF19B91FDFD8CBD6
+          EBF3CF2723EF3DCBDEEBD8A8712E00000184694343504943432070726F66696C
+          650000789C7D913D48C3401CC55F53A52215110B8A8864A84E1644451CA58A45
+          B050DA0AAD3A985CFA054D1A92141747C1B5E0E0C762D5C1C5595707574110FC
+          0071727452749112FF97145AC47870DC8F77F71E77EF00A15E66AAD93101A89A
+          6524635131935D1503AF08A00F03F0634462A61E4F2DA6E139BEEEE1E3EB5D84
+          67799FFB73F4283993013E91788EE98645BC413CB369E99CF78943AC2829C4E7
+          C4E3065D90F891EBB2CB6F9C0B0E0B3C3364A493F3C42162B1D0C6721BB3A2A1
+          124F13871555A37C21E3B2C2798BB35AAEB2E63DF90B83396D25C5759AC38861
+          097124204246152594612142AB468A8924ED473DFC438E3F412E995C2530722C
+          A0021592E307FF83DFDD9AF9A949372918053A5F6CFB631408EC028D9A6D7F1F
+          DB76E304F03F03575ACB5FA903B39FA4D75A5AF808E8DD062EAE5B9ABC075CEE
+          00834FBA64488EE4A729E4F3C0FB197D5316E8BF05BAD7DCDE9AFB387D00D2D4
+          D5F20D7070088C15287BDDE3DD5DEDBDFD7BA6D9DF0F5240729A24B279E30000
+          0006624B474400FF00FF00FFA0BDA793000000097048597300000B1300000B13
+          01009A9C180000000774494D4507E407111704384E83D7B10000010F49444154
+          78DAEDD94B1284200C04D0F1FE871EDD485914864ED21040B21D256F908FC4E3
+          4788FF15D2EFC7158C3CA9BD4FA26BE08D46D039A894DC8346DA57A1DF3079C3
+          16B4740F02877AA0D43082B5460D6E7ADC3D42826F74187A04B87A4C47A3CDAB
+          4714BCD93ABDD1D16874AB66C0D305D69E4592B0DB766FC7E82365E671A135AF
+          9C53A2BDF08D5E1A3DE5981E068DC2D939283BA2046FBA23327AE799B0E91992
+          89EE15EBA04706AF836E0546DEB76B2BC77D6D285A5BCB0B41A7A485B29A6693
+          1AA258A33D48A827A27503A9152D5D3D2D81ACF5E9E7BD1E78159D27F09EB691
+          F230058D046B0E5086474F386522B640BF0D0FCB41A22B3ABFD67AC6A47E2A93
+          FE0CE3B35C773433A6449F863857F1DE22A1830000000049454E44AE426082}
+        ShowHint = True
+        OnClick = ImageExcluirClick
+      end
       object SearchBoxFND: TSearchBox
         Left = 144
         Top = 29
@@ -267,7 +314,14 @@ object UFRM_FND_BASE: TUFRM_FND_BASE
         Top = 29
         Width = 97
         Height = 21
+        Style = csDropDownList
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
         ItemIndex = 0
+        ParentFont = False
         TabOrder = 1
         Text = 'C'#243'digo'
         Items.Strings = (
@@ -279,7 +333,7 @@ object UFRM_FND_BASE: TUFRM_FND_BASE
       Left = 1
       Top = 57
       Width = 713
-      Height = 355
+      Height = 314
       Align = alClient
       Color = clGradientActiveCaption
       FixedColor = clActiveCaption
@@ -291,6 +345,59 @@ object UFRM_FND_BASE: TUFRM_FND_BASE
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnDrawColumnCell = DBGrid1DrawColumnCell
+    end
+    object PnlRodape: TPanel
+      Left = 1
+      Top = 371
+      Width = 713
+      Height = 41
+      Align = alBottom
+      Caption = 'PnlRodape'
+      ShowCaption = False
+      TabOrder = 2
+      ExplicitTop = 372
+      ExplicitWidth = 185
+      object LblUsuario: TLabel
+        Left = 16
+        Top = 16
+        Width = 46
+        Height = 13
+        Caption = 'Usu'#225'rio:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object LblNameUser: TLabel
+        Left = 68
+        Top = 16
+        Width = 62
+        Height = 13
+        Caption = 'LblNameUser'
+      end
+      object LblEmpresa: TLabel
+        Left = 320
+        Top = 16
+        Width = 52
+        Height = 13
+        Caption = 'Empresa:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object LblNameEmpresa: TLabel
+        Left = 378
+        Top = 16
+        Width = 81
+        Height = 13
+        Caption = 'LblNameEmpresa'
+      end
     end
   end
 end

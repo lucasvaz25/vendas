@@ -12,7 +12,8 @@ uses
   UPais in 'UPais.pas',
   UEstado in 'UEstado.pas',
   UCidade in 'UCidade.pas',
-  UProduto in 'UProduto.pas';
+  UProduto in 'UProduto.pas',
+  UFRM_FND_CLIENTE in 'UFRM_FND_CLIENTE.pas' {FRM_FND_CLIENTE};
 
 {$R *.res}
 
@@ -20,6 +21,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TSistema, Sistema);
+  Application.CreateForm(TFRM_FND_CLIENTE, FRM_FND_CLIENTE);
   // Application.CreateForm(TUFRM_FND_BASE, UFRM_FND_BASE);
   // Application.CreateForm(TFRM_PDV, FRM_PDV);
   // Application.CreateForm(TFRM_CAD_BASE, FRM_CAD_BASE);

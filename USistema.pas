@@ -18,7 +18,10 @@ uses
   Vcl.StdCtrls,
   UFRM_CAD_BASE,
   UFRM_FND_BASE,
-  UFRM_PDV;
+  UFRM_PDV,
+  Vcl.PlatformDefaultStyleActnCtrls,
+  Vcl.ActnPopup,
+  Vcl.ComCtrls;
 
 type
   TSistema = class( TForm )
@@ -29,12 +32,23 @@ type
     LblRelatorios: TLabel;
     LblCadastros: TLabel;
     LblVendas: TLabel;
-    PnlCadastros: TPanel;
-    LblCadClientes: TLabel;
-    LblCadFuncionarios: TLabel;
-    LblCadProdutos: TLabel;
-    PnlRelatorios: TPanel;
-    LblRelFinanceiro: TLabel;
+    PnlMenu: TPanel;
+    LblMenu: TLabel;
+    PnlRelatorioFinanceiro: TPanel;
+    ImagemRelatorioFinanceiro: TImage;
+    Label1: TLabel;
+    PnlRelatorioClientes: TPanel;
+    ImagemRelatorioClientes: TImage;
+    LblRelatorioClientes: TLabel;
+    PnlCadastroClientes: TPanel;
+    ImageCadastroClientes: TImage;
+    LblCadastroClientes: TLabel;
+    PnlCadastroUsuarios: TPanel;
+    ImageCadastroUsuarios: TImage;
+    LblCadastroUsuarios: TLabel;
+    PnlCadastroProdutos: TPanel;
+    ImageCadastroProdutos: TImage;
+    LblCadastroProdutos: TLabel;
     procedure BtnSairGeralClick( Sender: TObject );
     procedure PnlCabecarioMenuClick( Sender: TObject );
     procedure PnlLayoutPrincipalClick( Sender: TObject );
@@ -52,25 +66,16 @@ type
     procedure LblVendasMouseLeave( Sender: TObject );
     procedure LblVendasClick( Sender: TObject );
     procedure LblCadastrosClick( Sender: TObject );
-    procedure PnlCadastrosMouseLeave( Sender: TObject );
-    procedure LblCadClientesMouseMove( Sender: TObject; Shift: TShiftState;
-      X, Y: Integer );
-    procedure LblCadClientesMouseLeave( Sender: TObject );
-    procedure LblCadFuncionariosMouseMove( Sender: TObject; Shift: TShiftState;
-      X, Y: Integer );
-    procedure LblCadFuncionariosMouseLeave( Sender: TObject );
-    procedure LblCadProdutosMouseLeave( Sender: TObject );
-    procedure LblCadProdutosMouseMove( Sender: TObject; Shift: TShiftState;
-      X, Y: Integer );
     procedure LblCadClientesClick( Sender: TObject );
-    procedure LblRelFinanceiroMouseMove( Sender: TObject; Shift: TShiftState;
-      X, Y: Integer );
-    procedure LblRelFinanceiroMouseLeave( Sender: TObject );
     procedure LblRelatoriosClick( Sender: TObject );
-    procedure PnlRelatoriosMouseLeave( Sender: TObject );
+    procedure PnlCadastroClientesClick( Sender: TObject );
+    procedure lblCadastroClientesClick(Sender: TObject);
+    procedure ImageCadastroClientesClick(Sender: TObject);
 
   private
     { Private declarations }
+    procedure CtrlPnlMenuRelatorios;
+    procedure CtrlPnlMenuCadastros;
 
   public
     { Public declarations }
@@ -84,6 +89,9 @@ var
   Sistema: TSistema;
 
 implementation
+
+uses
+  UFRM_FND_CLIENTE;
 
 {$R *.dfm}
 
@@ -102,10 +110,51 @@ begin
 
 end;
 
+procedure TSistema.CtrlPnlMenuCadastros;
+begin
+  PnlMenu.Visible                := True;
+  LblMenu.Caption                := 'Cadastros';
+  PnlMenu.Width                  := 401;
+  PnlMenu.Height                 := 162;
+  PnlCadastroClientes.Visible    := True;
+  PnlCadastroUsuarios.Visible    := True;
+  PnlCadastroProdutos.Visible    := True;
+  PnlRelatorioFinanceiro.Visible := False;
+  PnlRelatorioClientes.Visible   := False;
+  PnlCadastroClientes.Top        := 27;
+  PnlCadastroClientes.Left       := 9;
+  PnlCadastroUsuarios.Top        := 27;
+  PnlCadastroUsuarios.Left       := 143;
+  PnlCadastroProdutos.Top        := 27;
+  PnlCadastroProdutos.Left       := 280;
+end;
+
+procedure TSistema.CtrlPnlMenuRelatorios;
+begin
+  PnlMenu.Visible                := True;
+  LblMenu.Caption                := 'Relatórios';
+  PnlMenu.Width                  := 265;
+  PnlMenu.Height                 := 162;
+  PnlCadastroClientes.Visible    := False;
+  PnlCadastroUsuarios.Visible    := False;
+  PnlCadastroProdutos.Visible    := False;
+  PnlRelatorioFinanceiro.Visible := True;
+  PnlRelatorioClientes.Visible   := True;
+end;
+
+procedure TSistema.ImageCadastroClientesClick(Sender: TObject);
+begin
+  TesteConsulta;
+end;
+
+procedure TSistema.lblCadastroClientesClick(Sender: TObject);
+begin
+  TesteConsulta;
+end;
+
 procedure TSistema.LblCadastrosClick( Sender: TObject );
 begin
-  PnlCadastros.Visible := True;
-  PnlCadastros.Height  := 82;
+  Self.CtrlPnlMenuCadastros;
 end;
 
 procedure TSistema.LblCadastrosMouseLeave( Sender: TObject );
@@ -121,52 +170,13 @@ end;
 
 procedure TSistema.LblCadClientesClick( Sender: TObject );
 begin
-  PnlCadastros.Visible := False;
+
   TesteConsulta;
-end;
-
-procedure TSistema.LblCadClientesMouseLeave( Sender: TObject );
-begin
-  LblCadClientes.Font.Size := 13;
-end;
-
-procedure TSistema.LblCadClientesMouseMove( Sender: TObject; Shift: TShiftState;
-  X, Y: Integer );
-begin
-  LblCadClientes.Font.Size := 15;
-  PnlCadastros.Visible     := True;
-end;
-
-procedure TSistema.LblCadFuncionariosMouseLeave( Sender: TObject );
-begin
-  LblCadFuncionarios.Font.Size := 13;
-  PnlCadastros.Width           := 146;
-end;
-
-procedure TSistema.LblCadFuncionariosMouseMove( Sender: TObject;
-  Shift: TShiftState; X, Y: Integer );
-begin
-  LblCadFuncionarios.Font.Size := 15;
-  PnlCadastros.Visible         := True;
-  PnlCadastros.Width           := 164;
-end;
-
-procedure TSistema.LblCadProdutosMouseLeave( Sender: TObject );
-begin
-  LblCadProdutos.Font.Size := 13;
-end;
-
-procedure TSistema.LblCadProdutosMouseMove( Sender: TObject; Shift: TShiftState;
-  X, Y: Integer );
-begin
-  LblCadProdutos.Font.Size := 15;
-  PnlCadastros.Visible     := True;
-  PnlCadastros.Height      := 87;
 end;
 
 procedure TSistema.LblRelatoriosClick( Sender: TObject );
 begin
-  PnlRelatorios.Visible := True;
+  Self.CtrlPnlMenuRelatorios;
 end;
 
 procedure TSistema.LblRelatoriosMouseLeave( Sender: TObject );
@@ -178,20 +188,6 @@ procedure TSistema.LblRelatoriosMouseMove( Sender: TObject; Shift: TShiftState;
   X, Y: Integer );
 begin
   LblRelatorios.Font.Size := 15
-end;
-
-procedure TSistema.LblRelFinanceiroMouseLeave( Sender: TObject );
-begin
-  LblRelFinanceiro.Font.Size := 13;
-
-end;
-
-procedure TSistema.LblRelFinanceiroMouseMove( Sender: TObject;
-  Shift: TShiftState; X, Y: Integer );
-begin
-  LblRelFinanceiro.Font.Size := 15;
-  PnlRelatorios.Visible      := True;
-  PnlRelatorios.Width        := 129;
 end;
 
 procedure TSistema.LblVendasClick( Sender: TObject );
@@ -222,9 +218,9 @@ begin
   Closeall;
 end;
 
-procedure TSistema.PnlCadastrosMouseLeave( Sender: TObject );
+procedure TSistema.PnlCadastroClientesClick( Sender: TObject );
 begin
-  PnlCadastros.Visible := False;
+  Self.TesteConsulta;
 end;
 
 procedure TSistema.PnlVendasClick( Sender: TObject );
@@ -256,9 +252,9 @@ end;
 
 procedure TSistema.TesteConsulta;
 var
-  Form: TUFRM_FND_BASE;
+  Form: TFRM_FND_CLIENTE;
 begin
-  Form := TUFRM_FND_BASE.Create( Self );
+  Form := TFRM_FND_CLIENTE.Create( Self );
   try
     Closeall;
     Form.ShowModal;
@@ -275,11 +271,6 @@ end;
 procedure TSistema.PnlMenuPrincipalClick( Sender: TObject );
 begin
   Closeall;
-end;
-
-procedure TSistema.PnlRelatoriosMouseLeave( Sender: TObject );
-begin
-  PnlRelatorios.Visible := False;
 end;
 
 end.
