@@ -1,0 +1,37 @@
+unit UEmpresa;
+
+interface
+
+uses
+  Classes,
+  System.SysUtils,
+  UCidade,
+  UGeral;
+
+type
+  TEmpresa = Class( TGeral )
+  private
+  protected
+  public
+    constructor Create;
+    destructor Destroy;
+    procedure Free;
+
+    property CNPJ: String;
+    property RazaoSocial: string;
+    property NomeFantasia: String;
+    property IE: String;
+    property Email: String;
+    property Telefone1: string;
+    property Telefone2: string;
+    property Cidade: TCidade;
+    property CEP: string;
+    property Endereco: string;
+
+    procedure CopiarDados( Value: TEmpresa );
+    procedure LimparDados;
+  End;
+
+implementation
+
+end.

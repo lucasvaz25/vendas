@@ -8,17 +8,17 @@ uses
   UGeral;
 
 type
-  TPais = Class( TGeral )
+  TPais = Class(TGeral)
 
   private
     FMoeda: String;
     FSigla: String;
     FNome: String;
     FDDI: String;
-    procedure SetDDI( const Value: String );
-    procedure SetMoeda( const Value: String );
-    procedure SetNome( const Value: String );
-    procedure SetSigla( const Value: String );
+    procedure SetDDI(const Value: String);
+    procedure SetMoeda(const Value: String);
+    procedure SetNome(const Value: String);
+    procedure SetSigla(const Value: String);
 
   public
     constructor Create;
@@ -30,7 +30,7 @@ type
     property DDI: String read FDDI write SetDDI;
     property Moeda: String read FMoeda write SetMoeda;
 
-    procedure CopiarDados( Value: TPais );
+    procedure CopiarDados(Value: TPais);
     procedure LimparDados;
 
   End;
@@ -39,12 +39,12 @@ implementation
 
 { TPais }
 
-procedure TPais.CopiarDados( Value: TPais );
+procedure TPais.CopiarDados(Value: TPais);
 begin
-  inherited CopiarDados( Value );
-  FNome  := Value.FNome;
+  inherited CopiarDados(Value);
+  FNome := Value.FNome;
   FSigla := Value.FSigla;
-  FDDI   := Value.FDDI;
+  FDDI := Value.FDDI;
   FMoeda := Value.FMoeda;
 end;
 
@@ -61,35 +61,35 @@ end;
 
 procedure TPais.Free;
 begin
-  if Assigned( Self ) then
+  if assigned(Self) then
     Self.Destroy;
 end;
 
 procedure TPais.LimparDados;
 begin
   inherited LimparDados;
-  FNome  := '';
+  FNome := '';
   FSigla := '';
-  FDDI   := '';
+  FDDI := '';
   FMoeda := '';
 end;
 
-procedure TPais.SetDDI( const Value: String );
+procedure TPais.SetDDI(const Value: String);
 begin
   FDDI := Value;
 end;
 
-procedure TPais.SetMoeda( const Value: String );
+procedure TPais.SetMoeda(const Value: String);
 begin
   FMoeda := Value;
 end;
 
-procedure TPais.SetNome( const Value: String );
+procedure TPais.SetNome(const Value: String);
 begin
   FNome := Value;
 end;
 
-procedure TPais.SetSigla( const Value: String );
+procedure TPais.SetSigla(const Value: String);
 begin
   FSigla := Value;
 end;

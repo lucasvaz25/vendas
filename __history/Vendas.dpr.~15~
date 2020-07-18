@@ -13,8 +13,7 @@ uses
   UEstado in 'UEstado.pas',
   UCidade in 'UCidade.pas',
   UProduto in 'UProduto.pas',
-  UFRM_FND_CLIENTE in 'UFRM_FND_CLIENTE.pas' {FRM_FND_CLIENTE},
-  UEmpresa in 'UEmpresa.pas';
+  UFRM_FND_CLIENTE in 'UFRM_FND_CLIENTE.pas' {FRM_FND_CLIENTE};
 
 {$R *.res}
 
