@@ -73,6 +73,24 @@ procedure TUFRM_FND_BASE.DBGrid1DrawColumnCell( Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState );
 begin
   Self.ResizeGrid( Sender, Column );
+  with DBGrid1 do
+  begin
+    if Odd( DataSource.DataSet.RecNo ) then // zebrando grid
+      Canvas.Brush.Color := ClSilver
+    else
+      Canvas.Brush.Color := ClWindow;
+    Canvas.FillRect( Rect );
+
+    if GdSelected in State then // mudando cor seleção
+    begin
+      Canvas.Brush.Color := ClAqua;
+      Canvas.Font.Color  := ClMenuText;
+      Canvas.Font.Style  := [ FsBold ];
+    end;
+
+    DefaultDrawColumnCell( Rect, DataCol, Column, State );
+
+  end;
 end;
 
 procedure TUFRM_FND_BASE.Delete;
